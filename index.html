@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>БригАдрес — Каркасные дома и бани под ключ</title>
-  <meta name="description" content="БригАдрес — подбор проверенных подрядчиков для строительства каркасных домов и бань в Нижнем Новгороде и области. Замер и смета за 1 день, фиксируем цену в договоре, гарантия 5 лет." />
+  <meta name="description" content="БригАдрес — подбор проверенных подрядчиков для строительства каркасных домов и бань в Нижнем Новгороде и области. Фиксируем цену в договоре, сопровождение сделки." />
   <meta name="theme-color" content="#28b44b" />
   <style>
     :root{
@@ -13,8 +13,8 @@
       --card:#151c19;
       --text:#e9f1ec;
       --muted:#a8b4ad;
-      --accent:#28b44b;      /* светло‑зеленый из логотипа */
-      --brand-orange:#ff6a1a;/* оранжевый из логотипа */
+      --accent:#28b44b;
+      --brand-orange:#ff6a1a;
       --container:1200px;
       --radius:16px;
       --shadow:0 10px 30px rgba(0,0,0,.35);
@@ -24,9 +24,9 @@
     a{color:var(--accent);text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:999px;background:var(--accent);color:#052013;font-weight:700;border:0;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-1px);filter:saturate(1.1)}
-    .btn.secondary{background:#19382c;color:#c9ffdd;box-shadow:none;border:1px solid #274e3e}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:999px;background:var(--accent);color:#fff;font-weight:800;border:0;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px);filter:saturate(1.08)}
+    .btn.secondary{background:#19382c;color:#fff;box-shadow:none;border:1px solid #274e3e}
     .badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;background:#c8f5df;padding:.28rem .6rem;border-radius:999px;color:#0b251a}
     header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(11,15,13,.96),rgba(11,15,13,.85));backdrop-filter:saturate(1.1) blur(6px);border-bottom:1px solid #1c2421}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
@@ -38,47 +38,48 @@
     .mobile-menu{display:none}
 
     .hero{padding:64px 0 24px;background:linear-gradient(180deg,#0b0f0d 0%, #0c1511 100%)}
-    .hero__wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .hero__wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
     .h1{font-size:clamp(28px,4.6vw,48px);line-height:1.12;margin:12px 0 10px}
     .sub{color:var(--muted);max-width:58ch}
-    .hero__card{background:linear-gradient(180deg,#12201a,#0f1915);padding:20px;border-radius:var(--radius);border:1px solid #20332a;box-shadow:var(--shadow)}
-    .hero__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:18px 0 0}
-    .hero__item{background:var(--card);border:1px solid #1e2c25;border-radius:12px;padding:14px}
+    .hero__img{background:#0f1b16;border-radius:16px;border:2px solid var(--brand-orange);overflow:hidden;box-shadow:var(--shadow)}
+    .hero__img img{width:100%;height:auto;display:block}
 
     section{padding:68px 0;border-top:1px solid #16201b}
-    .section__title{font-size:clamp(22px,3vw,30px);margin:0 0 18px}
+    .section__title{font-size:clamp(22px,3vw,30px);margin:0 0 10px}
+    .section__subtitle{color:var(--muted);margin:0 0 18px}
 
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .card{background:var(--card);border:1px solid #1f2a25;border-radius:var(--radius);padding:18px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:2px solid var(--brand-orange);border-radius:var(--radius);padding:18px}
+    .card h3{margin:0 0 8px;font-size:1.1rem}
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .step{background:linear-gradient(180deg,#12211b,#0e1915);border:2px solid var(--brand-orange);border-radius:16px;padding:18px;position:relative}
     .step__num{position:absolute;top:12px;right:14px;font-weight:800;color:#ffffff33}
 
-    .filters{display:flex;gap:10px;margin:14px 0 24px}
-    .filter{padding:.5rem .9rem;border-radius:999px;border:1px solid #244a3b;background:#11261d;color:#c9ffdd;cursor:pointer}
+    .filters{display:flex;gap:10px;margin:10px 0 20px}
+    .filter{padding:.5rem .9rem;border-radius:999px;border:1px solid #244a3b;background:#11261d;color:#fff;cursor:pointer}
     .filter.active{background:var(--accent);color:#052013;border-color:transparent}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .tile{background:linear-gradient(180deg,#12221b,#0c1612);border:2px solid var(--brand-orange);border-radius:16px;overflow:hidden}
     .tile__img{aspect-ratio:4/3;background:#0f1b16 url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat}
     .tile.bath .tile__img{background-image:url('https://images.unsplash.com/photo-1604335399105-c3d5b3eec9a4?q=80&w=1200&auto=format&fit=crop') }
     .tile__body{padding:14px}
-    .tile__meta{display:flex;gap:10px;color:var(--muted);font-size:.95rem}
+    .tile__meta{display:flex;gap:10px;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+    .tile__meta span{white-space:nowrap}
 
     .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .quote{background:var(--card);border:1px solid #223129;border-radius:16px;padding:16px}
-
-    .checks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .check{background:linear-gradient(180deg,#131e19,#0e1714);border:2px solid var(--brand-orange);border-radius:16px;padding:16px}
+    .quote{display:grid;grid-template-columns:60px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid #223129;border-radius:16px;padding:12px}
+    .quote img{width:60px;height:60px;border-radius:8px;object-fit:cover;border:2px solid var(--brand-orange)}
 
     .faq{display:grid;grid-template-columns:1fr;gap:10px}
     details{background:#121a16;border:1px solid #20362b;border-radius:12px;padding:12px}
     details>summary{cursor:pointer;font-weight:600}
 
-    .form-embed{background:linear-gradient(180deg,#0f1a15,#0b1411);border:2px solid var(--brand-orange);border-radius:16px;padding:12px}
-    .iframe-wrap{position:relative;width:100%;min-height:800px;border-radius:12px;overflow:hidden;background:#0e1714}
-    .iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .form-note{color:var(--muted);font-size:.95rem;margin:8px 0 0}
+    .contact-form{background:linear-gradient(180deg,#0f1a15,#0b1411);border:2px solid var(--brand-orange);border-radius:16px;padding:16px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}
+    .form-row .full{grid-column:1/-1}
+    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #274e3e;background:#0f1713;color:#e9f1ec}
+    label{display:block;margin:0 0 6px;color:#cfe4da;font-size:.95rem}
 
     .contacts{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
     .contact-card{background:var(--card);border:1px solid #24352d;border-radius:16px;padding:16px}
@@ -88,17 +89,17 @@
 
     @media (max-width:1024px){
       .hero__wrap{grid-template-columns:1fr}
-      .cards{grid-template-columns:repeat(2,1fr)}
-      .steps{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
       .grid{grid-template-columns:repeat(2,1fr)}
-      .reviews{grid-template-columns:repeat(2,1fr)}
-      .checks{grid-template-columns:repeat(2,1fr)}
+      .reviews{grid-template-columns:1fr}
       .contacts{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
     }
     @media (max-width:640px){
-      .cards,.steps,.grid,.reviews,.checks{grid-template-columns:1fr}
       .nav__cta{display:none}
       .mobile-menu{display:flex;gap:10px}
+      .grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -114,10 +115,10 @@
       <nav class="nav__cta">
         <a href="tel:+79334191597">8 (933) 419-15-97</a>
         <a class="btn secondary" href="#form">Обратный звонок</a>
-        <a class="btn" href="#form">Получить смету</a>
+        <a class="btn" href="#form">Оставить заявку</a>
       </nav>
       <div class="mobile-menu">
-        <a class="btn" href="#form">Смета</a>
+        <a class="btn" href="#form">Заявка</a>
       </div>
     </div>
   </header>
@@ -127,27 +128,21 @@
       <div class="container hero__wrap">
         <div>
           <span class="badge">Документы подрядчиков проверены БригАдрес</span>
-          <h1 class="h1">Каркасные дома под ключ в <span id="region">Нижний Новгород</span></h1>
-          <p class="sub">Подберём исполнителя из 6 проверенных подрядчиков, зафиксируем цену в договоре, организуем замер и подробную смету за один день.</p>
+          <h1 class="h1">Каркасные дома под ключ в <span id="region">Нижнем Новгороде</span></h1>
+          <p class="sub">Подберём исполнителя из 6 проверенных подрядчиков и зафиксируем цену в договоре. Сопровождаем сделку и контролируем качество работ.</p>
           <div style="display:flex;gap:10px;margin:18px 0 0">
-            <a class="btn" href="#form">Получить смету</a>
-            <a class="btn secondary" href="#portfolio">Смотреть проекты</a>
+            <a class="btn" href="#form">Оставить заявку</a>
+            <a class="btn secondary" href="#works">Смотреть работы</a>
           </div>
-          <div class="hero__grid">
-            <div class="hero__item">Гарантия 5 лет • Этапность платежей</div>
-            <div class="hero__item">Работаем по договору • Фото и отчёты по этапам</div>
-            <div class="hero__item">Срок строительства от 30 дней</div>
-            <div class="hero__item">Сопровождение и контроль качества от БригАдрес</div>
+          <div class="hero__grid" style="margin-top:14px">
+            <div class="hero__item">Гарантия 5 лет. Этапность платежей.</div>
+            <div class="hero__item">Работаем по договору. Фото и отчёты по этапам.</div>
+            <div class="hero__item">Сроки согласовываем и фиксируем в договоре.</div>
+            <div class="hero__item">Сопровождение и контроль качества от БригАдрес.</div>
           </div>
         </div>
-        <div class="hero__card">
-          <div style="font-weight:700">Что получаете</div>
-          <ul style="margin:.6rem 0 0;padding-left:18px;color:var(--muted)">
-            <li>3–4 релевантных оффера с ценой «от» и составом комплектации</li>
-            <li>Календарный план и смета, согласованные по этапам</li>
-            <li>Прозрачные условия: материалы, гарантия, график платежей</li>
-            <li>Еженедельный фотоотчёт со стройплощадки</li>
-          </ul>
+        <div class="hero__img" aria-label="Каркасный дом">
+          <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1200&auto=format&fit=crop" alt="Каркасный дом" />
         </div>
       </div>
     </section>
@@ -156,29 +151,37 @@
       <div class="container">
         <h2 class="section__title">Почему с нами надёжно</h2>
         <div class="cards">
-          <div class="card">Проверяем ИП/ООО в реестрах, договоры, СРО/страхование, реальные объекты и отзывы клиентов.</div>
-          <div class="card">Фиксируем цену и комплектацию в договоре. Все допработы согласуются письменно.</div>
-          <div class="card">Замер и смета за 24 часа. Несколько вариантов решений под ваш бюджет.</div>
-          <div class="card">Сопровождаем до сдачи объекта. Гарантия 5 лет, помощь по сервису.</div>
+          <div class="card">
+            <h3>Гарантия надёжности</h3>
+            Мы лично проверяем документы (ИНН, допуски СРО), отзывы и работы каждого исполнителя. Вы работаете только с теми, кто прошёл наш отбор.
+          </div>
+          <div class="card">
+            <h3>Экономия времени</h3>
+            Не тратьте недели на поиски. Мы подберём 3+ проверенных варианта под ваши задачи и бюджет в кратчайшие сроки.
+          </div>
+          <div class="card">
+            <h3>Фиксированная цена</h3>
+            Никаких скрытых комиссий после подписания договора. Все дополнительные работы согласуются письменно.
+          </div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2 class="section__title">Как мы работаем</h2>
+        <h2 class="section__title">Как мы работаем?</h2>
+        <p class="section__subtitle">3 шага к надёжному подрядчику:</p>
         <div class="steps">
-          <div class="step"><div class="step__num">01</div><b>Заявка/квиз</b><br><span class="muted">Понимаем задачи: дом или баня, площадь, бюджет, сроки</span></div>
-          <div class="step"><div class="step__num">02</div><b>Подбор подрядчика</b><br><span class="muted">Сравниваем цену/состав/сроки, готовим 3–4 предложения</span></div>
-          <div class="step"><div class="step__num">03</div><b>Замер и смета</b><br><span class="muted">Выезд на участок, смета и календарный план</span></div>
-          <div class="step"><div class="step__num">04</div><b>Договор и стройка</b><br><span class="muted">Этапные платежи, контроль качества, отчёты</span></div>
+          <div class="step"><div class="step__num">01</div><b>Заявка</b><br><span class="muted">Оставьте запрос — мы свяжемся с вами.</span></div>
+          <div class="step"><div class="step__num">02</div><b>Подбор</b><br><span class="muted">Согласуем с вами 3 лучших варианта.</span></div>
+          <div class="step"><div class="step__num">03</div><b>Сделка</b><br><span class="muted">Организуем встречу и контроль исполнения.</span></div>
         </div>
       </div>
     </section>
 
-    <section id="portfolio">
+    <section id="works">
       <div class="container">
-        <h2 class="section__title">Портфолио 6 подрядчиков</h2>
+        <h2 class="section__title">Последние работы</h2>
         <div class="filters">
           <button class="filter active" data-type="all">Все</button>
           <button class="filter" data-type="house">Дом</button>
@@ -189,42 +192,72 @@
             <div class="tile__img" aria-label="Каркасный дом"></div>
             <div class="tile__body">
               <b>Дом 6×8, 96 м²</b>
-              <div class="tile__meta"><span>Ленточный фундамент</span><span>Утепление 150 мм</span><span>от 2,8 млн ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: ленточный</span>
+                <span>Утепление: 150 мм</span>
+                <span>Срок: 42 дня</span>
+                <span>Цена: от 2,8 млн ₽</span>
+              </div>
             </div>
           </article>
           <article class="tile house" data-type="house">
             <div class="tile__img" aria-label="Каркасный дом"></div>
             <div class="tile__body">
               <b>Дом 8×8, 128 м²</b>
-              <div class="tile__meta"><span>Свайно-винтовой</span><span>Утепление 200 мм</span><span>от 3,6 млн ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: сваи</span>
+                <span>Утепление: 200 мм</span>
+                <span>Срок: 55 дней</span>
+                <span>Цена: от 3,6 млн ₽</span>
+              </div>
             </div>
           </article>
           <article class="tile bath" data-type="bath">
             <div class="tile__img" aria-label="Каркасная баня"></div>
             <div class="tile__body">
               <b>Баня 4×6, 24 м²</b>
-              <div class="tile__meta"><span>Свайно-винтовой</span><span>Вагонка</span><span>от 690 тыс. ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: сваи</span>
+                <span>Отделка: вагонка</span>
+                <span>Срок: 21 день</span>
+                <span>Цена: от 690 тыс. ₽</span>
+              </div>
             </div>
           </article>
           <article class="tile house" data-type="house">
             <div class="tile__img" aria-label="Каркасный дом"></div>
             <div class="tile__body">
               <b>Дом 7×9, 126 м²</b>
-              <div class="tile__meta"><span>Ленточный</span><span>Планкен</span><span>от 3,2 млн ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: лента</span>
+                <span>Фасад: планкен</span>
+                <span>Срок: 60 дней</span>
+                <span>Цена: от 3,2 млн ₽</span>
+              </div>
             </div>
           </article>
           <article class="tile bath" data-type="bath">
             <div class="tile__img" aria-label="Каркасная баня"></div>
             <div class="tile__body">
               <b>Баня 6×6, 36 м²</b>
-              <div class="tile__meta"><span>Свайно-винтовой</span><span>Печь</span><span>от 950 тыс. ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: сваи</span>
+                <span>Печь</span>
+                <span>Срок: 28 дней</span>
+                <span>Цена: от 950 тыс. ₽</span>
+              </div>
             </div>
           </article>
           <article class="tile house" data-type="house">
             <div class="tile__img" aria-label="Каркасный дом"></div>
             <div class="tile__body">
               <b>Дом 9×9, 162 м²</b>
-              <div class="tile__meta"><span>Ленточный</span><span>Фасад фиброцемент</span><span>от 4,5 млн ₽</span></div>
+              <div class="tile__meta">
+                <span>Фундамент: лента</span>
+                <span>Фасад: фиброцемент</span>
+                <span>Срок: 75 дней</span>
+                <span>Цена: от 4,5 млн ₽</span>
+              </div>
             </div>
           </article>
         </div>
@@ -235,20 +268,18 @@
       <div class="container">
         <h2 class="section__title">Отзывы клиентов</h2>
         <div class="reviews">
-          <blockquote class="quote">«Выбрали подрядчика за 2 дня, цена совпала со сметой. Фотоотчёты каждую неделю, дом 8×8 сдали вовремя.» — Алексей, Кстово</blockquote>
-          <blockquote class="quote">«Нужна была баня 4×6. Помогли сравнить варианты и материалы. Понравился контроль качества от БригАдрес.» — Марина, Дзержинск</blockquote>
-          <blockquote class="quote">«Фиксированная цена в договоре и понятный график платежей. Рекомендую.» — Игорь, Нижний Новгород</blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="section__title">Документы проверены БригАдрес</h2>
-        <div class="checks">
-          <div class="check">ИНН/ОГРН, выписка ЕГРЮЛ/ЕГРИП, отсутствие критичных рисков</div>
-          <div class="check">Договор подряда, смета, график платежей, гарантийные условия</div>
-          <div class="check">Реальные объекты, контакты клиентов, подтверждённые отзывы</div>
+          <div class="quote">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=300&auto=format&fit=crop" alt="Проект дом 8×8">
+            <div>«Выбрали подрядчика за 2 дня, цена совпала со сметой. Фотоотчёты каждую неделю, дом 8×8 сдали вовремя.» — Алексей, Кстово</div>
+          </div>
+          <div class="quote">
+            <img src="https://images.unsplash.com/photo-1604335399105-c3d5b3eec9a4?q=80&w=300&auto=format&fit=crop" alt="Проект баня 4×6">
+            <div>«Нужна была баня 4×6. Помогли сравнить варианты и материалы. Понравился контроль качества от БригАдрес.» — Марина, Дзержинск</div>
+          </div>
+          <div class="quote">
+            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=300&auto=format&fit=crop" alt="Проект дом 7×9">
+            <div>«Фиксированная цена в договоре и понятный график платежей. Рекомендую.» — Игорь, Нижний Новгород</div>
+          </div>
         </div>
       </div>
     </section>
@@ -258,12 +289,12 @@
         <h2 class="section__title">Вопросы и ответы</h2>
         <div class="faq">
           <details>
-            <summary>Сколько стоит квадратный метр?</summary>
-            <div>Зависит от комплектации и фундамента. После квиза предложим 3–4 варианта с ценой «от» и составом работ.</div>
+            <summary>Как подобрать подрядчика под мой бюджет?</summary>
+            <div>Соберём требования, подберём 3+ проверенных вариантов и сравним их по цене, срокам и комплектации.</div>
           </details>
           <details>
             <summary>Как фиксируется цена?</summary>
-            <div>Цена и комплектация закрепляются в договоре. Допработы выполняются только по согласованию.</div>
+            <div>Цена и комплектация закрепляются в договоре. Все дополнительные работы согласуются письменно.</div>
           </details>
           <details>
             <summary>Кто несёт гарантийные обязательства?</summary>
@@ -275,12 +306,38 @@
 
     <section id="form">
       <div class="container">
-        <h2 class="section__title">Получить смету и предложения</h2>
-        <div class="form-embed">
-          <div class="iframe-wrap" aria-label="Форма заявки">
-            <iframe src="https://forms.yandex.ru/cloud/68a75e1102848f332b8f710b/" title="Форма заявки"></iframe>
-          </div>
-          <p class="form-note">Если форма не загрузилась, <a href="https://forms.yandex.ru/cloud/68a75e1102848f332b8f710b/" target="_blank" rel="noopener">откройте её в новом окне</a>.</p>
+        <h2 class="section__title">Оставьте заявку — перезвоним</h2>
+        <div class="contact-form">
+          <form id="leadForm">
+            <div class="form-row">
+              <div>
+                <label for="phone">Телефон *</label>
+                <input id="phone" name="phone" type="tel" placeholder="+7 999 000-00-00" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="name@mail.ru" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="full">
+                <label for="topic">Цель обращения *</label>
+                <select id="topic" name="topic" required>
+                  <option value="Консультация">Нужна консультация</option>
+                  <option value="Расчёт проекта">Рассчитать проект</option>
+                  <option value="Другое">Другое</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="full">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" rows="4" placeholder="Опишите задачу: дом/баня, площадь, участок, сроки"></textarea>
+              </div>
+            </div>
+            <button class="btn" type="submit">Отправить</button>
+            <p class="section__subtitle">Нажимая «Отправить», вы соглашаетесь с <a href="https://disk.yandex.ru/d/QJ3SUIqIjdtrEg" target="_blank">Политикой конфиденциальности</a>.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -316,7 +373,7 @@
     </div>
   </footer>
 
-  <div class="floating"><a class="btn" href="#form">Получить смету</a></div>
+  <div class="floating"><a class="btn" href="#form">Оставить заявку</a></div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -326,22 +383,30 @@
       filters.forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
       const t = btn.dataset.type;
-      tiles.forEach(card=>{
-        card.style.display = (t==='all' || card.dataset.type===t) ? 'block' : 'none';
-      });
+      tiles.forEach(card=>{ card.style.display = (t==='all' || card.dataset.type===t) ? 'block' : 'none'; });
     }));
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id = a.getAttribute('href');
-        if(id.length>1){
-          e.preventDefault();
-          document.querySelector(id).scrollIntoView({behavior:'smooth'});
-        }
+        if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
       });
     });
     const params = new URLSearchParams(location.search);
     const region = params.get('region');
     if(region){ document.getElementById('region').textContent = region; }
+
+    // mailto submit
+    document.getElementById('leadForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const topic = document.getElementById('topic').value;
+      const comment = document.getElementById('comment').value.trim();
+      if(!phone){ alert('Укажите телефон'); return; }
+      const subject = encodeURIComponent('Заявка с сайта БригАдрес');
+      const body = encodeURIComponent(`Телефон: ${phone}\nEmail: ${email}\nТема: ${topic}\nКомментарий: ${comment}`);
+      window.location.href = `mailto:brigadres@mail.ru?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
