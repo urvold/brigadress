@@ -3,116 +3,141 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>БригАдрес — Каркасные дома и бани под ключ</title>
-  <meta name="description" content="БригАдрес — подбор проверенных подрядчиков для строительства каркасных домов и бань в Нижнем Новгороде и области. Фиксируем цену в договоре, сопровождаем сделку." />
+  <title>БригАдрес — Каркасные дома и бани</title>
   <meta name="theme-color" content="#28b44b" />
   <style>
-    :root{--bg:#0b0f0d;--card:#151c19;--text:#e9f1ec;--muted:#a8b4ad;--accent:#28b44b;--brand:#ff6a1a;--container:1200px;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.35)}
-    *{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.5}
-    a{color:var(--accent);text-decoration:none}img{max-width:100%;display:block}
+    :root{--bg:#0b0f0d;--card:#151c19;--text:#e9f1ec;--muted:#a8b4ad;--accent:#28b44b;--brand:#ff6a1a;--container:1200px}
+    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.5}
+    img{max-width:100%;display:block}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:999px;background:var(--accent);color:#fff;font-weight:800;border:0;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
-    header{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,rgba(11,15,13,.96),rgba(11,15,13,.85));border-bottom:1px solid #1c2421}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}.brand{display:flex;align-items:center;gap:.7rem;font-weight:800}
-    .brand__logo{width:38px;height:38px;border-radius:8px;overflow:hidden;border:1px solid #2bd08144;background:#0f2b20}
-    section{padding:68px 0;border-top:1px solid #16201b}.h1{font-size:clamp(28px,4.6vw,48px);line-height:1.12;margin:12px 0 10px}
-    .hero{padding:64px 0 24px;background:linear-gradient(180deg,#0b0f0d 0%, #0c1511 100%)}.hero__wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
-    .hero__img{border:2px solid var(--brand);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border:2px solid var(--brand);border-radius:16px;padding:18px}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{background:linear-gradient(180deg,#12211b,#0e1915);border:2px solid var(--brand);border-radius:16px;padding:18px;position:relative}
-    .filters{display:flex;gap:10px;margin:10px 0 20px}.filter{padding:.5rem .9rem;border-radius:999px;border:1px solid #244a3b;background:#11261d;color:#fff;cursor:pointer}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tile{background:linear-gradient(180deg,#12221b,#0c1612);border:2px solid var(--brand);border-radius:16px;overflow:hidden}
-    .tile__img{aspect-ratio:4/3;background:#0f1b16}.tile__body{padding:14px}.tile__meta{display:flex;gap:10px;color:#a8b4ad;font-size:.95rem;flex-wrap:wrap}
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.quote{display:grid;grid-template-columns:60px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid #223129;border-radius:16px;padding:12px}
-    .contact-form{background:linear-gradient(180deg,#0f1a15,#0b1411);border:2px solid var(--brand);border-radius:16px;padding:16px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 12px}.form-row .full{grid-column:1/-1}
-    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #274e3e;background:#0f1713;color:#e9f1ec}
-    footer{padding:26px 0;border-top:1px solid #16201b;color:#a8b4ad;font-size:.95rem}
-    @media (max-width:1024px){.hero__wrap{grid-template-columns:1fr}.cards,.steps,.grid,.reviews{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+    header{padding:18px 0;border-bottom:1px solid #16201b;position:sticky;top:0;background:#0b0f0df2;backdrop-filter:blur(6px)}
+    h2{margin:0 0 10px;font-size:clamp(22px,3vw,30px)} .sub{color:var(--muted);margin-bottom:20px}
+    section{padding:56px 0;border-top:1px solid #16201b}
+
+    /* Carousel */
+    .carousel{position:relative;overflow:hidden;border-radius:16px;border:2px solid var(--brand)}
+    .track{display:flex;scroll-snap-type:x mandatory;overflow-x:auto;gap:12px;padding:12px;scroll-behavior:smooth;scrollbar-width:thin}
+    .track::-webkit-scrollbar{height:10px} .track::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:999px}
+    .slide{min-width:85%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#0f1b16}
+    @media(min-width:640px){ .slide{min-width:48%} }
+    @media(min-width:1024px){ .slide{min-width:32%} }
+    .navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#111a15cc;border:1px solid #274e3e;color:#fff;border-radius:999px;padding:.6rem 1rem;cursor:pointer}
+    .navbtn.prev{left:10px} .navbtn.next{right:10px}
+
+    /* Reviews */
+    .reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media(max-width:860px){.reviews{grid-template-columns:1fr}}
+    .review{display:grid;grid-template-columns:64px 1fr;gap:12px;background:#151c19;border:1px solid #223129;border-radius:16px;padding:14px}
+    .avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0f1b16;border:2px solid var(--brand);font-weight:800}
+    .house{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-top:8px;border:1px solid #25362d}
+    .name{font-weight:700} .meta{color:var(--muted);font-size:.95rem}
+
+    /* FAQ pills */
+    .faq{display:grid;gap:12px}
+    details{background:#0f1713;border:1px solid #274e3e;border-radius:999px;padding:10px 16px}
+    details>summary{cursor:pointer;font-weight:600;list-style:none;outline:none}
+    details[open]{background:#101c16;border-color:#2f6a52}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand"><div class="brand__logo"><img src="assets/logo.png" alt="Логотип БригАдрес" /></div><div>БригАдрес</div></div>
-      <nav class="nav__cta"><a class="btn" href="#form">Оставить заявку</a></nav>
-    </div>
-  </header>
+  <header><div class="container"><b>БригАдрес</b></div></header>
 
   <main>
-    <section class="hero">
-      <div class="container hero__wrap">
-        <div>
-          <span class="badge">Документы подрядчиков проверены БригАдрес</span>
-          <h1 class="h1">Каркасные дома под ключ в <span id="region">Нижнем Новгороде</span></h1>
-          <p class="sub">Подберём исполнителя из проверенных подрядчиков и зафиксируем цену в договоре. Сопровождаем сделку и контролируем качество работ.</p>
-          <div style="display:flex;gap:10px;margin:18px 0 0"><a class="btn" href="#form">Оставить заявку</a></div>
+    <section>
+      <div class="container">
+        <h2>Примеры работ</h2>
+        <p class="sub">Дома и бани каркасной технологии. Листайте галерею.</p>
+        <div class="carousel">
+          <button class="navbtn prev" onclick="scrollTrack(-1)">‹</button>
+          <div class="track" id="track">
+            <figure class="slide">
+              <img src="assets/house1.png" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/house2.jpg" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/house3.png" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/house4.jpg" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/house5.png" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/house6.jpg" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/bath1.jpg" alt="Пример работы">
+            </figure>
+            <figure class="slide">
+              <img src="assets/bath2.jpg" alt="Пример работы">
+            </figure>
+          </div>
+          <button class="navbtn next" onclick="scrollTrack(1)">›</button>
         </div>
-        <div class="hero__img"><img src="assets/hero.jpg" alt="Каркасный дом" /></div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2 class="section__title">Почему с нами надёжно</h2>
-        <div class="cards">
-          <div class="card"><h3>Гарантия надёжности</h3>Мы проверяем документы (ИП/ООО, СРО), отзывы и работы каждого исполнителя.</div>
-          <div class="card"><h3>Экономия времени</h3>Вы получаете несколько релевантных вариантов вместо недель поиска.</div>
-          <div class="card"><h3>Фиксированная цена</h3>Цена и состав работ закрепляем в договоре. Допработы — только письменно.</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="section__title">Как мы работаем?</h2>
-        <p class="section__subtitle">3 шага к надёжному подрядчику:</p>
-        <div class="steps">
-          <div class="step"><b>Заявка</b><br><span class="muted">Оставьте запрос — мы свяжемся с вами.</span></div>
-          <div class="step"><b>Подбор</b><br><span class="muted">Согласуем с вами 3 лучших варианта.</span></div>
-          <div class="step"><b>Сделка</b><br><span class="muted">Организуем встречу и контроль исполнения.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <h2 class="section__title">Вопросы и ответы</h2>
-        <div class="faq" id="faq-block">
-          <details open><summary>Как вы проверяете подрядчиков?</summary><div>Многоэтапно: документы (ИП/ООО, СРО, допуски), отзывы на независимых платформах, судебная история и финансовая надёжность. Для новых — тестовые заказы/фото‑видео отчёты прошлых объектов.</div></details>
-          <details><summary>Сколько стоит ваша услуга для заказчика?</summary><div>Для частных клиентов — без предоплаты. Комиссия 5% выплачивается только после успешного завершения работ и вашей оплаты подрядчику.</div></details>
-          <details><summary>Что если мне не понравятся подобранные варианты?</summary><div>Бесплатно подготовим новую подборку из 3 подрядчиков по вашим критериям — работаем до результата.</div></details>
-          <details><summary>Как происходит оплата подрядчику?</summary><div>Вы платите подрядчику напрямую по его договору. Мы платежи не принимаем — вы полностью контролируете сделку.</div></details>
-          <details><summary>Вы помогаете составлять договор с подрядчиком?</summary><div>Да, есть типовой договор подряда и консультация юриста по ключевым пунктам.</div></details>
-        </div>
-      </div>
-    </section>
-
-    <section id="form">
-      <div class="container">
-        <h2 class="section__title">Оставьте заявку — перезвоним</h2>
-        <div class="contact-form">
-          <form action="https://formsubmit.co/brigadres@mail.ru" method="POST">
-            <input type="hidden" name="_subject" value="Заявка с сайта БригАдрес">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="./thanks.html">
-            <input type="text" name="_honey" style="display:none">
-            <div class="form-row">
-              <div><label for="phone">Телефон *</label><input id="phone" name="Телефон" type="tel" placeholder="+7 999 000-00-00" required pattern="^\+?7\s?\d{3}\s?\d{3}-?\d{2}-?\d{2}$|^8\s?\d{3}\s?\d{3}-?\d{2}-?\d{2}$" /></div>
-              <div><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="name@mail.ru" /></div>
+        <h2>Отзывы клиентов</h2>
+        <div class="reviews">
+          <article class="review">
+            <div class="avatar">А</div>
+            <div>
+              <div class="name">Алексей — Кстово</div>
+              <div class="meta">«Подобрали подрядчика из проверенных. Коммуникация, смета и сроки — всё прозрачно. Дом сдали вовремя.»</div>
+              <img class="house" src="assets/review_house1.png" alt="Объект клиента">
             </div>
-            <div class="form-row"><div class="full"><label for="topic">Цель обращения *</label>
-              <select id="topic" name="Цель" required><option>Нужна консультация</option><option>Рассчитать проект</option><option>Другое</option></select></div></div>
-            <div class="form-row"><div class="full"><label for="comment">Комментарий</label><textarea id="comment" name="Комментарий" rows="4" placeholder="Опишите задачу: дом/баня, площадь, участок, сроки"></textarea></div></div>
-            <button class="btn" type="submit">Отправить</button>
-          </form>
+          </article>
+          <article class="review">
+            <div class="avatar">М</div>
+            <div>
+              <div class="name">Марина — Дзержинск</div>
+              <div class="meta">«Помогли сравнить комплектации и материалы, согласовали договор. Контроль этапов — каждую неделю.»</div>
+              <img class="house" src="assets/review_house2.png" alt="Объект клиента">
+            </div>
+          </article>
+          <article class="review">
+            <div class="avatar">И</div>
+            <div>
+              <div class="name">Игорь — Нижний Новгород</div>
+              <div class="meta">«Отсеяли случайных исполнителей, упростили переговоры. Работы шли по графику, без доплат.»</div>
+              <img class="house" src="assets/review_house3.png" alt="Объект клиента">
+            </div>
+          </article>
+          <article class="review">
+            <div class="avatar">О</div>
+            <div>
+              <div class="name">Ольга — Бор</div>
+              <div class="meta">«Быстро дали 3 варианта под мой бюджет. Помогли с приёмкой и фотоотчётами со стройки.»</div>
+              <img class="house" src="assets/review_house4.png" alt="Объект клиента">
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Вопросы и ответы</h2>
+        <div class="faq">
+          <details><summary>Почему каркасный дом?</summary><div>Быстро строится, энергоэффективен, тёплый контур, меньше нагрузка на фундамент.</div></details>
+          <details><summary>Если обратиться напрямую к подрядчику?</summary><div>Экономим время на проверке и переговорах: даём 3–4 проверенных варианта и помогаем в спорах.</div></details>
+          <details><summary>Как фиксируются цена и работы?</summary><div>Материалы, этапы, сроки и график платежей закрепляем в договоре. Допработы — только по письменному согласованию.</div></details>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><div>© <span id="year"></span> БригАдрес</div><div>Сделано с заботой о качестве строительства</div></div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    function scrollTrack(dir){
+      const el = document.getElementById('track');
+      const w = el.clientWidth * 0.9;
+      el.scrollBy({ left: w * dir, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
