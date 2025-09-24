@@ -1,79 +1,141 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>БригАдрес — Каркасные дома и бани</title>
-  <meta name="theme-color" content="#28b44b" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>БригАдрес — Каркасные дома и бани в Нижнем Новгороде</title>
+  <meta name="description" content="Подберём подрядчика из проверенных, зафиксируем условия в договоре, организуем замер и смету.">
+  <meta name="theme-color" content="#28B44B">
   <style>
-    :root{--bg:#0b0f0d;--card:#151c19;--text:#e9f1ec;--muted:#a8b4ad;--accent:#28b44b;--brand:#ff6a1a;--container:1200px}
-    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.5}
-    img{max-width:100%;display:block}
-    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    header{padding:18px 0;border-bottom:1px solid #16201b;position:sticky;top:0;background:#0b0f0df2;backdrop-filter:blur(6px)}
-    h2{margin:0 0 10px;font-size:clamp(22px,3vw,30px)} .sub{color:var(--muted);margin-bottom:20px}
-    section{padding:56px 0;border-top:1px solid #16201b}
+    :root{{--bg:#0b0f0d;--card:#151c19;--text:#e9f1ec;--muted:#a8b4ad;--accent:#28B44B;--brand:#ff6a1a;--line:#203329;--radius:16px;--container:1200px}}
+    *{{box-sizing:border-box}} html,body{{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.55}}
+    a{{color:inherit}} img{{max-width:100%;display:block}}
+    .container{{max-width:var(--container);margin:0 auto;padding:0 20px}}
+    header{{position:sticky;top:0;z-index:20;background:#0b0f0de6;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}}
+    .bar{{display:flex;align-items:center;gap:16px;padding:12px 0}}
+    .brand{{display:flex;align-items:center;gap:10px;font-weight:800}}
+    .brand img{{width:36px;height:36px}} .spacer{{flex:1}}
+    .btn{{border:1px solid #2a4a3d;background:#113322;color:#fff;padding:.6rem 1rem;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;gap:8px;align-items:center}}
+    .btn.primary{{background:var(--accent);border-color:var(--accent);color:#00150a;font-weight:700}}
+    .top-phone a{{text-decoration:none;color:#cfe7dd}}
+    .hero{{padding:48px 0 24px;border-bottom:1px solid var(--line)}}
+    .hero h1{{font-size:clamp(28px,5vw,46px);margin:0 0 12px}}
+    .hero p.lead{{color:var(--muted);max-width:720px;margin:0 0 18px}}
+    .badges{{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 28px}}
+    .badge{{background:#0f1713;border:1px solid var(--line);color:#bde8cd;padding:.35rem .7rem;border-radius:999px;font-size:.9rem}}
+    .cta-row{{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 24px}}
+    section{{padding:56px 0;border-bottom:1px solid var(--line)}}
+    h2{{margin:0 0 12px;font-size:clamp(22px,3vw,30px)}} .sub{{color:var(--muted);margin-bottom:22px}}
+    .grid-2{{display:grid;grid-template-columns:1fr;gap:16px}} @media(min-width:900px){{.grid-2{{grid-template-columns:1.2fr .8fr}}}}
+    .panel{{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}}
 
-    /* Carousel */
-    .carousel{position:relative;overflow:hidden;border-radius:16px;border:2px solid var(--brand)}
-    .track{display:flex;scroll-snap-type:x mandatory;overflow-x:auto;gap:12px;padding:12px;scroll-behavior:smooth;scrollbar-width:thin}
-    .track::-webkit-scrollbar{height:10px} .track::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:999px}
-    .slide{min-width:85%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#0f1b16}
-    @media(min-width:640px){ .slide{min-width:48%} }
-    @media(min-width:1024px){ .slide{min-width:32%} }
-    .navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#111a15cc;border:1px solid #274e3e;color:#fff;border-radius:999px;padding:.6rem 1rem;cursor:pointer}
-    .navbtn.prev{left:10px} .navbtn.next{right:10px}
+    .pills{{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}} @media(max-width:700px){{.pills{{grid-template-columns:1fr}}}}
+    .pill{{background:#0f1713;border:1px solid var(--line);border-radius:16px;padding:14px}}
 
-    /* Reviews */
-    .reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media(max-width:860px){.reviews{grid-template-columns:1fr}}
-    .review{display:grid;grid-template-columns:64px 1fr;gap:12px;background:#151c19;border:1px solid #223129;border-radius:16px;padding:14px}
-    .avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0f1b16;border:2px solid var(--brand);font-weight:800}
-    .house{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-top:8px;border:1px solid #25362d}
-    .name{font-weight:700} .meta{color:var(--muted);font-size:.95rem}
+    .steps{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}} @media(max-width:900px){{.steps{{grid-template-columns:1fr}}}}
+    .step{{background:#0f1713;border:1px solid var(--line);border-radius:16px;padding:16px}}
+    .step .num{{display:inline-flex;width:28px;height:28px;border-radius:999px;align-items:center;justify-content:center;background:#0b0f0d;border:1px solid var(--line);margin-right:8px}}
 
-    /* FAQ pills */
-    .faq{display:grid;gap:12px}
-    details{background:#0f1713;border:1px solid #274e3e;border-radius:999px;padding:10px 16px}
-    details>summary{cursor:pointer;font-weight:600;list-style:none;outline:none}
-    details[open]{background:#101c16;border-color:#2f6a52}
+    .carousel{{position:relative;overflow:hidden;border-radius:16px;border:2px solid var(--brand)}}
+    .track{{display:flex;scroll-snap-type:x mandatory;overflow-x:auto;gap:12px;padding:12px;scroll-behavior:smooth;scrollbar-width:thin}}
+    .track::-webkit-scrollbar{{height:10px}} .track::-webkit-scrollbar-thumb{{background:#2a2a2a;border-radius:999px}}
+    .slide{{min-width:85%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#0f1b16}}
+    @media(min-width:640px){{ .slide{{min-width:48%}} }}
+    @media(min-width:1024px){{ .slide{{min-width:32%}} }}
+    .navbtn{{position:absolute;top:50%;transform:translateY(-50%);background:#111a15cc;border:1px solid #274e3e;color:#fff;border-radius:999px;padding:.6rem 1rem;cursor:pointer}}
+    .navbtn.prev{{left:10px}} .navbtn.next{{right:10px}} 
+
+    .reviews{{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}} @media(max-width:900px){{.reviews{{grid-template-columns:1fr}}}}
+    .review{{display:grid;grid-template-columns:64px 1fr;gap:12px;background:#151c19;border:1px solid var(--line);border-radius:16px;padding:14px}}
+    .avatar{{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0f1b16;border:2px solid var(--brand);font-weight:800}}
+    .house{{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-top:8px;border:1px solid #25362d}}
+    .name{{font-weight:700}} .meta{{color:var(--muted);font-size:.95rem}} 
+
+    .faq{{display:grid;gap:12px}}
+    details{{background:#0f1713;border:1px solid #274e3e;border-radius:999px;padding:10px 16px}}
+    details>summary{{cursor:pointer;font-weight:600;list-style:none;outline:none}} 
+    details[open]{{background:#101c16;border-color:#2f6a52}}
+
+    footer .cols{{display:grid;grid-template-columns:1fr 1fr;gap:12px}} @media(max-width:700px){{footer .cols{{grid-template-columns:1fr}}}}
+    footer a{{color:#9fd7bb}}
   </style>
 </head>
 <body>
-  <header><div class="container"><b>БригАдрес</b></div></header>
+  <header>
+    <div class="container bar">
+      <div class="brand"><img src="assets/logo.png" alt="БригАдрес логотип"><span>БригАдрес</span></div>
+      <div class="spacer"></div>
+      <div class="top-phone"><a href="tel:+79334191597">8 (933) 419‑15‑97</a></div>
+      <a href="#form" class="btn">Обратный звонок</a>
+      <a href="#form" class="btn primary">Получить смету</a>
+    </div>
+  </header>
 
   <main>
+    <section class="hero">
+      <div class="container grid-2">
+        <div>
+          <h1>Каркасные дома и бани под ключ в Нижнем Новгороде</h1>
+          <p class="lead">Подберём исполнителя из проверенных подрядчиков, закрепим условия в договоре, организуем замер и подробную смету.</p>
+          <div class="badges">
+            <span class="badge">Документы подрядчиков проверены</span>
+            <span class="badge">Фиксация цены и материалов в договоре</span>
+            <span class="badge">Сопровождение до сдачи объекта</span>
+          </div>
+          <div class="cta-row">
+            <a href="#form" class="btn primary">Получить смету</a>
+            <a href="#portfolio" class="btn">Смотреть проекты</a>
+          </div>
+          <div class="pills">
+            <div class="pill">Гарантия 5 лет • Этапность платежей</div>
+            <div class="pill">Работа по договору • Фото‑отчёты по этапам</div>
+            <div class="pill">Срок строительства от 30 дней</div>
+            <div class="pill">Сопровождение и контроль качества от БригАдрес</div>
+          </div>
+        </div>
+        <div class="panel"><img src="assets/p1.jpg" alt="Каркасный дом"></div>
+      </div>
+    </section>
+
     <section>
+      <div class="container">
+        <h2>Почему с нами надёжно</h2>
+        <div class="pills">
+          <div class="pill">Проверяем ИП/ООО в реестрах, договоры, СРО/страхование, реальные объекты и отзывы.</div>
+          <div class="pill">Фиксируем цену и комплектацию в договоре. Все допработы согласуются письменно.</div>
+          <div class="pill">Организуем замер и смету. Предлагаем несколько решений под ваш бюджет.</div>
+          <div class="pill">Сопровождаем до сдачи объекта. Гарантия 5 лет, помощь по сервису.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Как мы работаем?</h2>
+        <p class="sub">3 шага к надёжному подрядчику</p>
+        <div class="steps">
+          <div class="step"><span class="num">1</span><b>Заявка —</b> оставьте запрос, мы свяжемся с вами.</div>
+          <div class="step"><span class="num">2</span><b>Подбор —</b> согласуем 3 лучших варианта под задачу и бюджет.</div>
+          <div class="step"><span class="num">3</span><b>Сделка —</b> организуем встречу и контроль исполнения.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
       <div class="container">
         <h2>Примеры работ</h2>
         <p class="sub">Дома и бани каркасной технологии. Листайте галерею.</p>
         <div class="carousel">
           <button class="navbtn prev" onclick="scrollTrack(-1)">‹</button>
           <div class="track" id="track">
-            <figure class="slide">
-              <img src="assets/house1.png" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/house2.jpg" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/house3.png" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/house4.jpg" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/house5.png" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/house6.jpg" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/bath1.jpg" alt="Пример работы">
-            </figure>
-            <figure class="slide">
-              <img src="assets/bath2.jpg" alt="Пример работы">
-            </figure>
+            <figure class="slide"><img src="assets/p1.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p2.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p3.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p4.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p5.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p6.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p7.jpg" alt="Пример работы"></figure>
+            <figure class="slide"><img src="assets/p8.jpg" alt="Пример работы"></figure>
           </div>
           <button class="navbtn next" onclick="scrollTrack(1)">›</button>
         </div>
@@ -88,32 +150,32 @@
             <div class="avatar">А</div>
             <div>
               <div class="name">Алексей — Кстово</div>
-              <div class="meta">«Подобрали подрядчика из проверенных. Коммуникация, смета и сроки — всё прозрачно. Дом сдали вовремя.»</div>
-              <img class="house" src="assets/review_house1.png" alt="Объект клиента">
+              <div class="meta">«Подобрали подрядчика из проверенных, смета и сроки совпали. Фотоотчёты каждую неделю.»</div>
+              <img class="house" src="assets/r1.jpg" alt="Объект клиента">
             </div>
           </article>
           <article class="review">
             <div class="avatar">М</div>
             <div>
               <div class="name">Марина — Дзержинск</div>
-              <div class="meta">«Помогли сравнить комплектации и материалы, согласовали договор. Контроль этапов — каждую неделю.»</div>
-              <img class="house" src="assets/review_house2.png" alt="Объект клиента">
+              <div class="meta">«Помогли сравнить варианты и комплектации, согласовали договор. Контроль качества — на каждом этапе.»</div>
+              <img class="house" src="assets/r2.jpg" alt="Объект клиента">
             </div>
           </article>
           <article class="review">
             <div class="avatar">И</div>
             <div>
               <div class="name">Игорь — Нижний Новгород</div>
-              <div class="meta">«Отсеяли случайных исполнителей, упростили переговоры. Работы шли по графику, без доплат.»</div>
-              <img class="house" src="assets/review_house3.png" alt="Объект клиента">
+              <div class="meta">«Переговоры и спорные вопросы взяли на себя. Работы шли по графику, без сюрпризов.»</div>
+              <img class="house" src="assets/r3.jpg" alt="Объект клиента">
             </div>
           </article>
           <article class="review">
             <div class="avatar">О</div>
             <div>
               <div class="name">Ольга — Бор</div>
-              <div class="meta">«Быстро дали 3 варианта под мой бюджет. Помогли с приёмкой и фотоотчётами со стройки.»</div>
-              <img class="house" src="assets/review_house4.png" alt="Объект клиента">
+              <div class="meta">«Быстро предложили 3 варианта под бюджет. Сдачу приняли по чек‑листу, всё чётко.»</div>
+              <img class="house" src="assets/r4.jpg" alt="Объект клиента">
             </div>
           </article>
         </div>
@@ -124,20 +186,48 @@
       <div class="container">
         <h2>Вопросы и ответы</h2>
         <div class="faq">
-          <details><summary>Почему каркасный дом?</summary><div>Быстро строится, энергоэффективен, тёплый контур, меньше нагрузка на фундамент.</div></details>
-          <details><summary>Если обратиться напрямую к подрядчику?</summary><div>Экономим время на проверке и переговорах: даём 3–4 проверенных варианта и помогаем в спорах.</div></details>
+          <details><summary>Почему каркасный дом?</summary><div>Быстро строится, энергоэффективен, тёплый контур, меньшая нагрузка на фундамент.</div></details>
+          <details><summary>Если обратиться напрямую к подрядчику?</summary><div>Экономим время: даём 3–4 проверенных варианта, ведём переговоры и помогаем в спорных ситуациях.</div></details>
           <details><summary>Как фиксируются цена и работы?</summary><div>Материалы, этапы, сроки и график платежей закрепляем в договоре. Допработы — только по письменному согласованию.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="form">
+      <div class="container">
+        <h2>Получить смету и предложения</h2>
+        <p class="sub">Оставьте контакты — вернёмся с 3–4 релевантными вариантами.</p>
+        <div class="panel">
+          <iframe src="https://forms.yandex.ru/cloud/68d4512290fa7b0005097f47/?iframe=1" frameborder="0" style="width:100%;height:780px;border-radius:12px;background:#fff"></iframe>
         </div>
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="container cols" style="padding:24px 0">
+      <div>
+        <b>Контакты</b><br>
+        Тел.: <a href="tel:+79334191597">8 (933) 419‑15‑97</a><br>
+        Email: <a href="mailto:brigadres@mail.ru">brigadres@mail.ru</a><br>
+        Telegram: <a href="https://t.me/BrigAdres" target="_blank">@BrigAdres</a><br>
+        ВК: <a href="https://vk.com/brigadres_club" target="_blank">vk.com/brigadres_club</a><br>
+        Нижний Новгород
+      </div>
+      <div>
+        <b>Документы</b><br>
+        <a href="https://disk.yandex.ru/d/QJ3SUIqIjdtrEg" target="_blank">Политика конфиденциальности</a><br>
+        <a href="https://disk.yandex.ru/d/ttlyl_xgB4KdQw" target="_blank">Публичная оферта</a><br>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    function scrollTrack(dir){
+    function scrollTrack(dir){{
       const el = document.getElementById('track');
       const w = el.clientWidth * 0.9;
-      el.scrollBy({ left: w * dir, behavior: 'smooth' });
-    }
+      el.scrollBy({{ left: w * dir, behavior: 'smooth' }});
+    }}
   </script>
 </body>
 </html>
