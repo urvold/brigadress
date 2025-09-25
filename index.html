@@ -2,61 +2,89 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>БригАдрес — Каркасные дома и бани в Нижнем Новгороде</title>
-<meta name="description" content="Подберём подрядчика из проверенных, закрепим условия в договоре, организуем замер и смету.">
 <meta name="theme-color" content="#28B44B">
 <style>
-:root{--bg:#0b0f0d;--card:#151c19;--text:#e9f1ec;--muted:#a8b4ad;--accent:#28B44B;--line:#203329;--radius:16px;--container:1200px;}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.55}
-a{color:inherit}img{max-width:100%;display:block}
+:root{
+ --bg:#0b0f0d;--card:#121815;--ink:#e9f1ec;--muted:#a8b4ad;--line:#203329;--accent:#28B44B;--radius:16px;--container:1200px;
+}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);
+ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
 .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+/* Header */
 header{position:sticky;top:0;z-index:20;background:#0b0f0de6;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:16px;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}.brand img{width:36px;height:36px}.spacer{flex:1}
-.btn{border:1px solid #2a4a3d;background:#113322;color:#fff;padding:.6rem 1rem;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:#00150a;font-weight:700}
-.top-phone a{text-decoration:none;color:#cfe7dd}
-
-.hero{padding:48px 0 24px;border-bottom:1px solid var(--line)}
-.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 12px}
+.bar{display:flex;align-items:center;gap:12px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand img{width:36px;height:36px}
+.spacer{flex:1}
+.btn{border:1px solid #2a4a3d;background:#113322;color:#fff;padding:.7rem 1.05rem;border-radius:999px;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#082014;font-weight:800}
+.top-phone a{color:#d1ecde}
+/* Hero */
+.hero{padding:44px 0;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(26px,5.4vw,46px);margin:0 0 10px}
 .hero p.lead{color:var(--muted);max-width:720px;margin:0 0 18px}
-.grid-hero{display:grid;grid-template-columns:1fr;gap:18px}@media(min-width:900px){.grid-hero{grid-template-columns:1.1fr .9fr}}
-.hero .media{border-radius:16px;overflow:hidden} .hero .media img{width:100%;height:100%;object-fit:cover;display:block}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 24px}
-.badge{background:#0f1713;border:1px solid var(--line);color:#bde8cd;padding:.35rem .7rem;border-radius:999px;font-size:.9rem}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 18px}
-.pills{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}@media(max-width:700px){.pills{grid-template-columns:1fr}}
+.grid-hero{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:900px){.grid-hero{grid-template-columns:1.1fr .9fr}}
+.media{border-radius:16px;overflow:hidden}
+.media img{width:100%;height:100%;object-fit:cover}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px}
+.badge{background:#0f1713;border:1px solid var(--line);color:#bde8cd;padding:.35rem .7rem;border-radius:999px;font-size:.95rem}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 14px}
+.pills{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:700px){.pills{grid-template-columns:repeat(2,1fr)}}
 .pill{background:#0f1713;border:1px solid var(--line);border-radius:16px;padding:14px}
-
-section{padding:56px 0;border-bottom:1px solid var(--line)}
-h2{margin:0 0 12px;font-size:clamp(22px,3vw,30px)}.sub{color:var(--muted);margin-bottom:22px}
-
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:800px){.tiles{grid-template-columns:repeat(3,1fr)}}@media(min-width:1100px){.tiles{grid-template-columns:repeat(4,1fr)}}
-.tile{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0f1713}
-.tile img{width:100%;height:220px;object-fit:cover}@media(min-width:1100px){.tile img{height:200px}}
-
-.reviews{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}@media(max-width:900px){.reviews{grid-template-columns:1fr}}
-.card{background:#151c19;border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start}
+/* Sections */
+section{padding:54px 0;border-bottom:1px solid var(--line)}
+h2{margin:0 0 10px;font-size:clamp(22px,3.2vw,30px)}
+.sub{color:var(--muted);margin-bottom:22px}
+/* Portfolio grid */
+.tiles{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:820px){.tiles{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1180px){.tiles{grid-template-columns:repeat(4,1fr)}}
+.tile{border:1px solid var(--line);background:#0f1713;border-radius:14px;overflow:hidden}
+.tile img{width:100%;height:210px;object-fit:cover}
+@media(min-width:1180px){.tile img{height:190px}}
+/* Steps */
+.steps{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.step .num{display:inline-flex;width:28px;height:28px;border-radius:50%;align-items:center;justify-content:center;
+ background:#0f1b15;border:1px solid var(--accent);margin-right:8px;font-weight:800}
+/* Advantages */
+.adv{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:900px){.adv{grid-template-columns:repeat(3,1fr)}}
+.adv .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+/* Reviews */
+.reviews{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:900px){.reviews{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:start}
 .avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#0f1b16;border:2px solid var(--accent);font-weight:800}
-.meta{color:var(--muted);font-size:.95rem;margin-bottom:8px}
-.thumb{width:120px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #25362d}
 .inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-
+.thumb{width:120px;height:80px;object-fit:cover;border-radius:8px;border:1px solid #25362d}
+.meta{color:var(--muted);margin-top:6px}
+/* FAQ */
 .faq{display:grid;gap:12px}
 details{background:#0f1713;border:1px solid #274e3e;border-radius:999px;padding:10px 16px}
-details>summary{cursor:pointer;font-weight:600;list-style:none;outline:none}
+details>summary{cursor:pointer;font-weight:600;list-style:none}
 details[open]{background:#101c16;border-color:#2f6a52}
+/* Form */
 .help{color:#bfe2cd;margin:.4rem 0 1rem}
+iframe{background:#fff}
+/* Footer */
+footer .grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:700px){footer .grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header>
   <div class="container bar">
-    <div class="brand"><img src="assets/logo.png" alt="Логотип"><span>БригАдрес</span></div>
+    <div class="brand"><img src="assets/logo.jpg" alt=""><span>БригАдрес</span></div>
     <div class="spacer"></div>
     <div class="top-phone"><a href="tel:+79334191597">8 (933) 419‑15‑97</a></div>
-    <a href="#form" class="btn">Обратный звонок</a>
     <a href="#form" class="btn primary">Отправить заявку</a>
   </div>
 </header>
@@ -83,24 +111,47 @@ details[open]{background:#101c16;border-color:#2f6a52}
     </div>
   </section>
 
+  <section id="adv">
+    <div class="container">
+      <h2>Почему с нами надёжно</h2>
+      <div class="adv">
+        <div class="card"><b>1. Гарантия надёжности</b><br>Мы лично проверяем документы (ИНН, допуски СРО), отзывы и портфолио каждого исполнителя. Вы работаете только с теми, кто прошёл наш отбор.</div>
+        <div class="card"><b>2. Экономия времени</b><br>Подбор за 24 часа: найдём 3+ релевантных подрядчика под ваши задачи и бюджет. Вы выбираете — мы организуем процесс.</div>
+        <div class="card"><b>3. Фиксированная цена</b><br>Никаких скрытых комиссий после подписания договора — работаем по принципу «всё включено», фиксируем комплектацию и цену письменно.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="container">
+      <h2>Как мы работаем?</h2>
+      <p class="sub">3 шага к надёжному подрядчику:</p>
+      <div class="steps">
+        <div class="step"><span class="num">01</span><b>Заявка.</b> Оставьте запрос — мы свяжемся, уточним задачи и бюджет.</div>
+        <div class="step"><span class="num">02</span><b>Подбор.</b> Согласуем с вами 3 лучших варианта и покажем примеры работ.</div>
+        <div class="step"><span class="num">03</span><b>Сделка.</b> Организуем встречу, фиксируем условия в договоре и сопровождаем исполнение.</div>
+      </div>
+    </div>
+  </section>
+
   <section id="portfolio">
     <div class="container">
       <h2>Примеры работ</h2>
       <p class="sub">Дома и бани каркасной технологии.</p>
       <div class="tiles">
-          <figure class="tile"><img src="assets/p1.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p2.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p3.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p4.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p5.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p6.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p7.jpg" alt="Пример работы"></figure>
-          <figure class="tile"><img src="assets/p8.jpg" alt="Пример работы"></figure>
+        <figure class="tile"><img src="assets/p1.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p2.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p3.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p4.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p5.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p6.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p7.jpg" alt=""></figure>
+        <figure class="tile"><img src="assets/p8.jpg" alt=""></figure>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="reviews">
     <div class="container">
       <h2>Отзывы клиентов</h2>
       <div class="reviews">
@@ -139,12 +190,12 @@ details[open]{background:#101c16;border-color:#2f6a52}
   <section id="form">
     <div class="container">
       <h2>Отправить заявку</h2>
-      <p class="help">Если видите это сообщение или пустой экран — в Яндекс.Форме нужно включить «Доступ по ссылке» и разрешить встраивание. Кнопка ниже откроет форму в новой вкладке.</p>
+      <p class="help">Если внутри фрейма пусто — в Яндекс.Форме нужно включить «Доступ по ссылке» и «Разрешить встраивание на сайты». Кнопка ниже откроет форму в новой вкладке.</p>
       <div style="background:#151c19;border:1px solid var(--line);border-radius:16px;padding:12px">
-        <iframe src="https://forms.yandex.ru/cloud/68d4512290fa7b0005097f47/?iframe=1" referrerpolicy="no-referrer" frameborder="0" style="width:100%;height:820px;border-radius:12px;background:#fff"></iframe>
+        <iframe src="https://forms.yandex.ru/cloud/68d4512290fa7b0005097f47/?iframe=1" frameborder="0" style="width:100%;height:820px;border-radius:12px"></iframe>
         <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
           <a class="btn primary" href="https://forms.yandex.ru/cloud/68d4512290fa7b0005097f47/" target="_blank" rel="noopener">Открыть форму в новой вкладке</a>
-          <a class="btn" href="mailto:brigadres@mail.ru?subject=Заявка%20с%20сайта%20БригАдрес&body=Имя:%0AТелефон:%0AПочта:%0AЗапрос:%20консультация/расчет/другое">Написать на почту</a>
+          <a class="btn" href="mailto:brigadres@mail.ru?subject=Заявка%20с%20сайта%20БригАдрес">Написать на почту</a>
         </div>
       </div>
     </div>
@@ -152,7 +203,7 @@ details[open]{background:#101c16;border-color:#2f6a52}
 </main>
 
 <footer>
-  <div class="container" style="padding:24px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+  <div class="container grid" style="padding:22px 0">
     <div>
       <b>Контакты</b><br>
       Тел.: <a href="tel:+79334191597">8 (933) 419‑15‑97</a><br>
